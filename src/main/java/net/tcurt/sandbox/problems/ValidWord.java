@@ -1,4 +1,4 @@
-package net.tcurt.sandbox;
+package net.tcurt.sandbox.problems;
 
 import java.util.regex.Pattern;
 import lombok.extern.slf4j.Slf4j;

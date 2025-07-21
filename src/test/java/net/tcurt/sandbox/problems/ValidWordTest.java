@@ -1,4 +1,4 @@
-package net.tcurt.sandbox;
+package net.tcurt.sandbox.problems;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
