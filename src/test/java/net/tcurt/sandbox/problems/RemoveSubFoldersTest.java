@@ -11,26 +11,26 @@ import org.junit.jupiter.api.Test;
 
 public class RemoveSubFoldersTest {
 
-  private RemoveSubFolders tester = new RemoveSubFolders();
+  private RemoveSubFolders underTest = new RemoveSubFolders();
 
   @Test
   void case1() {
     String[] input = new String[] {"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"};
-    List<String> actual = tester.removeSubfolders(input);
+    List<String> actual = underTest.removeSubfolders(input);
     assertThat(actual).containsExactlyInAnyOrder("/a", "/c/d", "/c/f");
   }
 
   @Test
   void case2() {
     String[] input = new String[] {"/a", "/a/b/c", "/a/b/d"};
-    List<String> actual = tester.removeSubfolders(input);
+    List<String> actual = underTest.removeSubfolders(input);
     assertThat(actual).containsExactlyInAnyOrder("/a");
   }
 
   @Test
   void case3() {
     String[] input = new String[] {"/a/b/c", "/a/b/ca", "/a/b/d"};
-    List<String> actual = tester.removeSubfolders(input);
+    List<String> actual = underTest.removeSubfolders(input);
     assertThat(actual).containsExactlyInAnyOrder("/a/b/c", "/a/b/ca", "/a/b/d");
   }
 
@@ -41,7 +41,7 @@ public class RemoveSubFoldersTest {
     Path path = Paths.get(resource.toURI());
     List<String> inputList = Files.readAllLines(path);
     String[] input = inputList.toArray(new String[0]);
-    List<String> actual = tester.removeSubfolders(input);
+    List<String> actual = underTest.removeSubfolders(input);
     assertThat(actual).containsExactlyInAnyOrder("/a");
   }
 }

@@ -5,19 +5,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class FancyStringTest {
-  FancyString tester = new FancyString();
+  FancyString underTest = new FancyString();
 
   @Test
   void leeetcode() {
     String input = "leeetcode";
     String expected = "leetcode";
-    assertThat(tester.makeFancyString(input)).isEqualTo(expected);
+    assertThat(underTest.makeFancyString(input)).isEqualTo(expected);
   }
 
   @Test
   void aaabaaaa() {
     String input = "aaabaaaa";
     String expected = "aabaa";
-    assertThat(tester.makeFancyString(input)).isEqualTo(expected);
+    assertThat(underTest.makeFancyString(input)).isEqualTo(expected);
   }
 }

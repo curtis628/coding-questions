@@ -7,12 +7,12 @@ import net.tcurt.sandbox.BinaryTreeNode;
 import org.junit.jupiter.api.Test;
 
 public class SymmetricBinaryTreeTest {
-  SymmetricBinaryTree tester = new SymmetricBinaryTree();
+  SymmetricBinaryTree underTest = new SymmetricBinaryTree();
 
   @Test
   void oneLevel() {
     BinaryTreeNode root = BinaryTreeNode.builder().val(0).build();
-    assertThat(tester.isSymmetric(root)).isTrue();
+    assertThat(underTest.isSymmetric(root)).isTrue();
   }
 
   /**
@@ -67,7 +67,7 @@ public class SymmetricBinaryTreeTest {
                     .build())
             .build();
 
-    assertThat(tester.isSymmetric(tree)).isTrue();
+    assertThat(underTest.isSymmetric(tree)).isTrue();
   }
 
   /**
@@ -87,7 +87,7 @@ public class SymmetricBinaryTreeTest {
             .left(builder().val(1).build())
             .right(builder().val(2).build())
             .build();
-    assertThat(tester.isSymmetric(tree)).isFalse();
+    assertThat(underTest.isSymmetric(tree)).isFalse();
   }
 
   /**
@@ -109,7 +109,7 @@ public class SymmetricBinaryTreeTest {
             .left(builder().val(1).right(builder().val(2).build()).build())
             .right(builder().val(1).left(builder().val(2).build()).build())
             .build();
-    assertThat(tester.isSymmetric(tree)).isTrue();
+    assertThat(underTest.isSymmetric(tree)).isTrue();
   }
 
   /**
@@ -131,6 +131,6 @@ public class SymmetricBinaryTreeTest {
             .left(builder().val(1).right(builder().val(2).build()).build())
             .right(builder().val(1).right(builder().val(2).build()).build())
             .build();
-    assertThat(tester.isSymmetric(tree)).isFalse();
+    assertThat(underTest.isSymmetric(tree)).isFalse();
   }
 }
