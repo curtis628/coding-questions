@@ -10,6 +10,7 @@ public class Vector2DTest {
   void case1() {
     int[][] matrix = {
       {1, 2},
+      {},
       {3},
       {4}
     };

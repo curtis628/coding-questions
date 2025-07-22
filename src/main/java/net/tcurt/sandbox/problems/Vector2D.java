@@ -1,44 +1,40 @@
 package net.tcurt.sandbox.problems;
 
 /** From <a href="https://leetcode.com/problems/flatten-2d-vector">Leetcode 251</a> */
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-class Vector2D {
+class Vector2D implements Iterator<Integer> {
 
-  // Constructor will put all the nums into this list.
-  private List<Integer> nums = new ArrayList<>();
+  private int[][] v;
+  private int innerNdx = 0;
+  private int outerNdx = 0;
 
-  // Keep track of where the Iterator is up to.
-  private int position = 0;
-
-  // NOTE: this is bad solution. Iterators should have low constructor time, an minimize use of
-  // auxiliary space (only track what's needed to grab next value, reusing existing data structure)
   public Vector2D(int[][] v) {
-    // We need to iterate over the 2D vector, getting all the integers
-    // out of it and putting them into nums (a field).
-    for (int[] innerVector : v) {
-      for (int num : innerVector) {
-        nums.add(num);
-      }
-    }
+    this.v = v;
   }
 
-  public int next() {
-    // In Java, we throw a NoSuchElementException when next() is called
-    // on an exhausted Iterator.
+  public Integer next() {
     if (!hasNext()) throw new NoSuchElementException();
-    // Store the number we need to return, as we still need to move position forward.
-    int result = nums.get(position);
-    // Move the position pointer forward by 1, so that it's ready for
-    // the next call to next, and gives a correct hasNext result.
-    position++;
-    return result;
+
+    int next = v[innerNdx][outerNdx];
+    if (outerNdx + 1 == v[innerNdx].length) {
+      innerNdx++;
+      outerNdx = 0;
+    } else {
+      outerNdx++;
+    }
+
+    return next;
   }
 
   public boolean hasNext() {
-    // There's nums left as long as position is a valid index of the list.
-    return position < nums.size();
+    boolean hasNext = innerNdx < v.length && outerNdx < v[innerNdx].length;
+    while (innerNdx < v.length && !hasNext) {
+      innerNdx++;
+      outerNdx = 0;
+      hasNext = innerNdx < v.length && outerNdx < v[innerNdx].length;
+    }
+    return hasNext;
   }
 }
