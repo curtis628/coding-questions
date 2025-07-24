@@ -17,6 +17,21 @@ import lombok.extern.slf4j.Slf4j;
  * <p>Quick lookup is implemented via a separate hash map. On a cache hit, the node will be removed
  * from its current place in the linked list and re-added at the beginning to signal it was recently
  * used.
+ *
+ * <h3>Problem Statement</h3>
+ *
+ * You are building a backend service that processes a high volume of user events. Each event
+ * contains a user_id, and your system needs to enrich these events with the user's IP address.
+ *
+ * <p>To obtain the IP address, your service must query a third-party API: - The third-party API
+ * accepts a user_id a nd returns the corresponding ip_address. - The API has a rate limit: maximum
+ * X requests per hour.
+ *
+ * <p>Your system processes ~10X requests, and many events may contain the same user_id. Currently
+ * the system queries the API to get the corresponding ip_address for every single user_id.
+ *
+ * <p>How can the sytem be improved to respect the API rate limit and ensure the IP address
+ * information is available for each event.
  */
 @Slf4j
 public class LRUCache {
