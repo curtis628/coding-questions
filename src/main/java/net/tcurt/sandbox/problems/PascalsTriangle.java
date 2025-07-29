@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
-/** From <a href="https://leetcode.com/problems/pascals-triangle/description/">Leetcode 118</a> */
+/** From <a href="https://leetcode.com/problems/pascals-triangle">Leetcode 118</a> */
 @Slf4j
 public class PascalsTriangle {
 
