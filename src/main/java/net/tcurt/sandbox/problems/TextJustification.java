@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
+// TODO struggled (didn't actually re-attempt)
 /**
  * From <a href="https://leetcode.com/problems/text-justification/">Leetcode 68</a>
  *

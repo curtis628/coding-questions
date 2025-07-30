@@ -25,11 +25,8 @@ public class SmallestSubarraysWithMaximumBitwiseOr {
   // Therefore, we return [3, 3, 2, 2, 1, 1].
   public int[] smallestSubarrays(int[] nums) {
     int[] result = new int[nums.length];
-    int largestPossibleXor = 0;
-    for (int i = 0; i < nums.length; i++) {
-      largestPossibleXor |= nums[i];
-    }
-    log.debug("Max bitwise OR of {} is: {}", nums, largestPossibleXor);
+    int max = Arrays.stream(nums).max().getAsInt();
+    log.debug("Max bitwise OR of {} is: {}", nums, max);
 
     for (int i = 0; i < nums.length; i++) {
       int num = nums[i];
@@ -37,7 +34,7 @@ public class SmallestSubarraysWithMaximumBitwiseOr {
       int lastMaxOrNdx = i;
 
       int ndx = i + 1;
-      while (maxOr < largestPossibleXor && ndx < nums.length) {
+      while (maxOr < max && ndx < nums.length) {
         num = nums[ndx];
         if ((maxOr | num) > maxOr) {
           maxOr |= num;
@@ -45,10 +42,7 @@ public class SmallestSubarraysWithMaximumBitwiseOr {
         }
         ndx++;
       }
-
-      int[] subarray = Arrays.copyOfRange(nums, i, lastMaxOrNdx + 1);
-      log.debug("Max OR from ndx={}: {}", i, subarray);
-      result[i] = subarray.length;
+      result[i] = lastMaxOrNdx - i + 1;
     }
 
     return result;

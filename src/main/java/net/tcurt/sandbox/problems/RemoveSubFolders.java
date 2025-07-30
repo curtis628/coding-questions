@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
+// TODO struggled
 /**
- * From <a
- * href="https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/?envType=daily-question&envId=2025-07-21">leetcode
+ * From <a href="https://leetcode.com/problems/remove-sub-folders-from-the-filesystem">Leetcode
  * 1233</a>
  */
 @Slf4j

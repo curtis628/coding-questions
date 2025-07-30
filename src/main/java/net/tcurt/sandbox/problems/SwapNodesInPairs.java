@@ -3,10 +3,10 @@ package net.tcurt.sandbox.problems;
 import lombok.extern.slf4j.Slf4j;
 import net.tcurt.sandbox.ListNode;
 
+// TODO struggled
 /** From <a href="https://leetcode.com/problems/swap-nodes-in-pairs">Leetcode 24</a> */
 @Slf4j
 public class SwapNodesInPairs {
-
   public ListNode swapPairs(ListNode head) {
     if (head == null || head.next == null) return head;
 

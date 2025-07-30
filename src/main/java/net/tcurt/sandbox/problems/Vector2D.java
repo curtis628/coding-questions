@@ -1,9 +1,10 @@
 package net.tcurt.sandbox.problems;
 
-/** From <a href="https://leetcode.com/problems/flatten-2d-vector">Leetcode 251</a> */
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+// TODO struggled (but wasn't fully focusing)
+/** From <a href="https://leetcode.com/problems/flatten-2d-vector">Leetcode 251</a> */
 class Vector2D implements Iterator<Integer> {
 
   private int[][] v;

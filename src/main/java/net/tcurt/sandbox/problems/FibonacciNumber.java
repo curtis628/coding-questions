@@ -8,22 +8,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class FibonacciNumber {
 
-  // memoization!
-  Map<Integer, Integer> cache = new HashMap<>();
+  // track call count to verify how many cache lookups there are
+  Map<Integer, Integer> callMap = new HashMap<>();
 
   public int fib(int n) {
-    if (cache.containsKey(n)) {
-      return cache.get(n);
-    }
+    return fib(n, new int[n + 1]);
+  }
 
-    int result;
-    if (n < 2) {
-      result = (n == 0) ? 0 : 1;
-    } else {
-      result = fib(n - 2) + fib(n - 1);
-    }
-    cache.put(n, result);
+  private int fib(int n, int[] memo) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
 
-    return result;
+    if (memo[n] == 0) {
+      int callCount = callMap.getOrDefault(n, 0);
+      callMap.put(n, callCount + 1);
+      memo[n] = fib(n - 2, memo) + fib(n - 1, memo);
+    }
+    return memo[n];
   }
 }

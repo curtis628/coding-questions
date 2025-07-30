@@ -44,13 +44,12 @@ import java.util.List;
 public class ParseLogs {
 
   public String[] reorderLogFiles(String[] logs) {
-    // as we find digit logs, add them where we can get in original order
     List<String> letterLogs = new ArrayList<>();
     List<String> digitLogs = new ArrayList<>();
 
     for (String log : logs) {
-      int splitNdx = log.indexOf(" ");
-      String content = log.substring(splitNdx + 1);
+      int idSeparatorNdx = log.indexOf(" ");
+      String content = log.substring(idSeparatorNdx + 1);
 
       if (Character.isDigit(content.charAt(0))) {
         digitLogs.add(log);
@@ -60,19 +59,18 @@ public class ParseLogs {
     }
 
     letterLogs.sort(
-        (log1, log2) -> {
-          int i1 = log1.indexOf(" ");
-          int i2 = log2.indexOf(" ");
+        (a, b) -> {
+          int aSeparatorNdx = a.indexOf(" ");
+          String aId = a.substring(0, aSeparatorNdx);
+          String aContent = a.substring(aSeparatorNdx + 1);
 
-          String id1 = log1.substring(0, i1);
-          String content1 = log1.substring(i1 + 1);
+          int bSeparatorNdx = b.indexOf(" ");
+          String bId = b.substring(0, bSeparatorNdx);
+          String bContent = b.substring(bSeparatorNdx + 1);
 
-          String id2 = log2.substring(0, i2);
-          String content2 = log2.substring(i2 + 1);
-
-          int cmp = content1.compareTo(content2);
+          int cmp = aContent.compareTo(bContent);
           if (cmp == 0) {
-            cmp = id1.compareTo(id2);
+            cmp = aId.compareTo(bId);
           }
           return cmp;
         });

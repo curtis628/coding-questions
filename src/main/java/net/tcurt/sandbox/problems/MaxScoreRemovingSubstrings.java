@@ -11,55 +11,46 @@ import lombok.extern.slf4j.Slf4j;
 public class MaxScoreRemovingSubstrings {
 
   public int maximumGain(String s, int x, int y) {
-    String highPriorityPair = x > y ? "ab" : "ba";
-    int highPriorityScore = "ab".equals(highPriorityPair) ? x : y;
-
-    String lowPriorityPair = "ab".equals(highPriorityPair) ? "ba" : "ab";
-    int lowPriorityScore = "ab".equals(highPriorityPair) ? y : x;
-    log.info(
-        "'{}': highPriority [{}, score={}] lowPriority [{} , score={}]",
-        s,
-        highPriorityPair,
-        highPriorityScore,
-        lowPriorityPair,
-        lowPriorityScore);
+    String highPriorityPair = (x > y) ? "ab" : "ba";
+    int highPriorityScore = (x > y) ? x : y;
+    String lowPriorityPair = (x > y) ? "ba" : "ab";
+    int lowPriorityScore = (x > y) ? y : x;
 
     // First, remove high priority/scoring pair... (and calculate score)
-    String s1 = removeSubstrings(s, highPriorityPair);
-    int sizeDiff = s.length() - s1.length();
-    int totalScore = sizeDiff / highPriorityPair.length() * highPriorityScore;
+    String remaining = removeSubstrings(s, highPriorityPair);
+    int score = (s.length() - remaining.length()) / 2 * highPriorityScore;
 
     // Then remove low priority one...
-    String s2 = removeSubstrings(s1, lowPriorityPair);
-    sizeDiff = s1.length() - s2.length();
-    totalScore += sizeDiff / lowPriorityPair.length() * lowPriorityScore;
+    String end = removeSubstrings(s, lowPriorityPair);
+    score += (end.length() - remaining.length()) / 2 * lowPriorityScore;
 
-    return totalScore;
+    return score;
   }
 
   private String removeSubstrings(String s, String pair) {
     Stack<Character> stack = new Stack<>();
-    Character startChar = pair.charAt(0);
-    Character endChar = pair.charAt(1);
-    log.debug("Remove substrings: pair={}", pair);
-
     for (char c : s.toCharArray()) {
-      log.debug("  Processing: {}", c);
-
-      // found pair!
-      if (!stack.isEmpty() && startChar.equals(stack.peek()) && endChar.equals(c)) {
-        log.debug("    found pair!");
-        stack.pop();
-      } else {
+      if (stack.isEmpty()) {
         stack.push(c);
+      } else {
+        StringBuilder sb = new StringBuilder();
+        char prev = stack.peek();
+        sb.append(prev).append(c);
+
+        if (pair.contentEquals(sb)) {
+          stack.pop(); // found match! Remove it from stack.
+        } else {
+          stack.push(c); // no match. Add it to stack.
+        }
       }
     }
 
-    StringBuilder sb = new StringBuilder(stack.size());
-    while (!stack.isEmpty()) {
-      sb.insert(0, stack.pop());
+    StringBuilder remaining = new StringBuilder();
+    int remainingSize = stack.size();
+    for (int i = 0; i < remainingSize; i++) {
+      remaining.insert(0, stack.pop());
     }
 
-    return sb.toString();
+    return remaining.toString();
   }
 }

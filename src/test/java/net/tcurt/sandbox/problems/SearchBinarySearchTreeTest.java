@@ -45,7 +45,7 @@ public class SearchBinarySearchTreeTest {
   }
 
   @Test
-  void smallTree_notFonud() {
+  void smallTree_notFound() {
     TreeNode root = createSmallTree();
     TreeNode foundRoot = underTest.searchBST(root, 5);
     assertThat(foundRoot).isNull();

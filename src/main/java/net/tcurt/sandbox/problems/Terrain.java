@@ -40,21 +40,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Terrain {
 
-  private boolean canPlace(int[] terrain, int waterNdx) {
-    if (waterNdx == 0 || waterNdx >= terrain.length - 1) {
-      return false;
-    }
+  private boolean canHoldWater(int[] terrain, int waterNdx) {
+    // can't place water at edges...
+    if (waterNdx == 0 || waterNdx == terrain.length - 1) return false;
 
-    int leftNdx = waterNdx - 1;
-    int leftTerrain = terrain[leftNdx];
+    int current = terrain[waterNdx];
+    int left = terrain[waterNdx - 1];
+    int right = terrain[waterNdx + 1];
 
-    int rightNdx = waterNdx + 1;
-    int rightTerrain = terrain[rightNdx];
-    int currentTerrainForWaterNdx = terrain[waterNdx];
-
-    boolean canPlace =
-        leftTerrain > currentTerrainForWaterNdx && rightTerrain > currentTerrainForWaterNdx;
-    return canPlace;
+    return left > current && right > current;
   }
 
   // + w +
@@ -62,60 +56,57 @@ public class Terrain {
   // + + + + + +
   //
   // Input: [2,1,2,1,0,1],2,2
-  // Output: [2,2,2,1,0,1]
+  // Output: [2,2,2,1,1,1]
   public int[] generateTerrain(int[] terrain, int waterAmount, int waterNdx) {
+    // print original terrain
+    int max = Arrays.stream(terrain).max().getAsInt();
+    for (int level = max; level >= 0; level--) {
+      for (int i = 0; i < terrain.length; i++) {
+        String cell = (terrain[i] >= level) ? "+ " : "  ";
+        System.out.print(cell);
+      }
+      System.out.println();
+    }
 
+    // keep trying to place water
     while (waterAmount > 0) {
-      if (canPlace(terrain, waterNdx)) {
+      // try at requested space first...
+      if (canHoldWater(terrain, waterNdx)) {
         terrain[waterNdx]++;
         waterAmount--;
       } else {
-        int leftNdx = waterNdx - 1;
-        int leftTerrain = terrain[leftNdx];
-        int currentTerrainForWaterNdx = terrain[waterNdx];
+        int current = terrain[waterNdx];
+        boolean placedWater = false;
 
-        // assumption 1+2: if boundary not high enough, flow left first
-        int leftPlacementNdx = -1;
-        if (leftTerrain <= currentTerrainForWaterNdx) {
-          while (leftNdx >= 0 && leftPlacementNdx == -1) {
-            if (canPlace(terrain, leftNdx)) {
-              leftPlacementNdx = leftNdx;
-              terrain[leftNdx]++;
-              waterAmount--;
-            }
-            leftNdx--;
+        // try left
+        for (int leftNdxSearch = waterNdx - 1; leftNdxSearch > 0 && !placedWater; leftNdxSearch--) {
+          if (canHoldWater(terrain, leftNdxSearch)) {
+            terrain[leftNdxSearch]++;
+            waterAmount--;
+            placedWater = true;
+          } else if (terrain[leftNdxSearch] > current) {
+            break;
           }
         }
 
-        // time to try to the right...
-        if (leftPlacementNdx == -1) {
-          int rightNdx = waterNdx + 1;
-          int rightPlacementNdx = -1;
-          while (rightNdx < terrain.length && rightPlacementNdx == -1) {
-            if (canPlace(terrain, rightNdx)) {
-              rightPlacementNdx = rightNdx;
-              terrain[rightNdx]++;
-              waterAmount--;
-            }
-            rightNdx++;
-          }
-
-          // couldn't place it to the right either... so all water will just flow out
-          if (rightPlacementNdx == -1) {
-            waterAmount = 0;
+        // try right
+        for (int rightNdxSearch = waterNdx + 1;
+            rightNdxSearch < terrain.length && !placedWater;
+            rightNdxSearch++) {
+          if (canHoldWater(terrain, rightNdxSearch)) {
+            terrain[rightNdxSearch]++;
+            waterAmount--;
+            placedWater = true;
+          } else if (terrain[rightNdxSearch] > current) {
+            break;
           }
         }
-      }
-    }
 
-    int maxTerrain = Arrays.stream(terrain).max().getAsInt();
-    for (int terrainLevel = maxTerrain; terrainLevel >= 0; terrainLevel--) {
-      for (int i = 0; i < terrain.length; i++) {
-        int t = terrain[i];
-        String output = (t >= terrainLevel) ? "+ " : "  ";
-        System.out.print(output);
+        // impossible to place water... so it all flows out
+        if (!placedWater) {
+          waterAmount = 0;
+        }
       }
-      System.out.println();
     }
 
     return terrain;

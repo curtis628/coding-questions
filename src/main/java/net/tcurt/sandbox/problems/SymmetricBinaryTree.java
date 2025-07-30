@@ -1,8 +1,8 @@
 package net.tcurt.sandbox.problems;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import lombok.extern.slf4j.Slf4j;
 import net.tcurt.sandbox.BinaryTreeNode;
@@ -43,63 +43,38 @@ import net.tcurt.sandbox.BinaryTreeNode;
 public class SymmetricBinaryTree {
 
   public boolean isSymmetric(BinaryTreeNode rootNode) {
-    Map<Integer, StringBuilder> levelToStringBuilderMap = new HashMap<>();
-
-    Queue<BinaryTreeNode> queue = new LinkedList<>();
-    queue.add(rootNode);
-    int level = 0;
-
+    Queue<BinaryTreeNode> queue = new ArrayDeque<>();
+    List<String> levels = new ArrayList<>();
+    queue.offer(rootNode);
     while (!queue.isEmpty()) {
-      log.debug("Processing level={}", level);
-      // current size of queue includes all nodes at level
-      int levelItems = queue.size();
+      int nodesOnLevel = queue.size();
       StringBuilder sb = new StringBuilder();
-      levelToStringBuilderMap.put(level, sb);
 
-      for (int i = 0; i < levelItems; i++) {
-        BinaryTreeNode node = queue.remove();
+      for (int i = 0; i < nodesOnLevel; i++) {
+        BinaryTreeNode node = queue.poll();
         sb.append(node.getVal());
-        log.debug("  Adding [{}]", node.getVal());
 
-        if (node.getLeft() == null && node.getRight() == null) {
-          continue;
-        }
+        if (node.getLeft() != null || node.getRight() != null) {
+          BinaryTreeNode placeHolder = BinaryTreeNode.builder().val("$").build();
+          BinaryTreeNode left = node.getLeft() != null ? node.getLeft() : placeHolder;
+          queue.offer(left);
 
-        // Add dummy char for missing child to ensure exact mirror image
-        if (node.getLeft() != null) {
-          queue.add(node.getLeft());
-        } else {
-          queue.add(BinaryTreeNode.builder().val("$").build());
-        }
-
-        if (node.getRight() != null) {
-          queue.add(node.getRight());
-        } else {
-          queue.add(BinaryTreeNode.builder().val("$").build());
+          BinaryTreeNode right = node.getRight() != null ? node.getRight() : placeHolder;
+          queue.offer(right);
         }
       }
-      level++;
+      levels.add(sb.toString());
     }
 
-    // if each level of the map is a palindrome --> symmetric!
-    for (int i = 0; i < levelToStringBuilderMap.size(); i++) {
-      String levelValues = levelToStringBuilderMap.get(i).toString();
-      log.debug("level={} values: {}", i, levelValues);
-
-      for (int startNdx = 0, endNdx = levelValues.length() - 1;
-          startNdx <= endNdx;
-          startNdx++, endNdx--) {
-        char start = levelValues.charAt(startNdx);
-        char end = levelValues.charAt(endNdx);
-        if (start != end) {
-          {
-            log.debug("  level={} isn't symmetric: startChar={} endChar={}", i, start, end);
-            return false;
-          }
+    for (String level : levels) {
+      for (int startNdx = 0, endNdx = level.length() - 1; startNdx < endNdx; startNdx++, endNdx--) {
+        char startChar = level.charAt(startNdx);
+        char endChar = level.charAt(endNdx);
+        if (startChar != endChar) { // not a palindrome --> not a symmetric tree
+          return false;
         }
       }
     }
-
     return true;
   }
 }
