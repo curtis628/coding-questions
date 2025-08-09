@@ -2,6 +2,7 @@ package net.tcurt.sandbox.problems;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.tcurt.sandbox.Method;
 
 /**
  * From <a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted">Leetcode 167</a>.
@@ -9,11 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class TwoSumPartTwo {
-  enum Method {
-    BRUTE_FORCE,
-    BINARY_SEARCH,
-    TWO_POINTERS
-  };
 
   private final Method method;
 
