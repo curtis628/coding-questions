@@ -60,14 +60,12 @@ public class SplitStays {
 
     for (int i = 0; i < hosts.size(); i++) {
       Host host1 = hosts.get(i);
-      List<Integer> host1Days = host1.availability;
       for (int j = i + 1; j < hosts.size(); j++) {
         Host host2 = hosts.get(j);
-        List<Integer> host2Days = host2.availability;
 
         // determine if we can start reservation from `host1`, and end at `host2`
-        if (host1Days.contains(startDay)) {
-          int host1LatestFromDay = this.latestConsecutiveFromDay(host1, startDay);
+        int host1LatestFromDay = this.latestConsecutiveFromDay(host1, startDay);
+        if (host1LatestFromDay > 0) {
           int nextDay = host1LatestFromDay + 1;
           int host2LatestFromNext = this.latestConsecutiveFromDay(host2, nextDay);
 
@@ -77,8 +75,8 @@ public class SplitStays {
         }
 
         // determine if we can start reservation from `host2`, and end at `host1`
-        if (host2Days.contains(startDay)) {
-          int host2LatestFromDay = this.latestConsecutiveFromDay(host2, startDay);
+        int host2LatestFromDay = this.latestConsecutiveFromDay(host2, startDay);
+        if (host2LatestFromDay > 0) {
           int nextDay = host2LatestFromDay + 1;
           int host1LatestFromNext = this.latestConsecutiveFromDay(host1, nextDay);
 
