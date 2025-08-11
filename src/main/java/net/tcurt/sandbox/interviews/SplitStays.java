@@ -12,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
  * <b>and</b> only require moving hosts once.
  *
  * <pre>
- * Airbnb A - [1,2,3,6,7,10,11]
- * Airbnb B - [3,4,5,6,8,9,10,13]
- * Airbnb C - [7,8,9,10,11]
+ * Host A - [1,2,3,6,7,10,11]
+ * Host B - [3,4,5,6,8,9,10,13]
+ * Host C - [7,8,9,10,11]
  * startDay - 3, endDay 11
  * results: [
  *   [B, C]
