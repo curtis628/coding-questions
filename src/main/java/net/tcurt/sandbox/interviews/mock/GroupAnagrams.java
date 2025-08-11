@@ -1,4 +1,4 @@
-package net.tcurt.sandbox.leetcode;
+package net.tcurt.sandbox.interviews.mock;
 
 import java.util.ArrayList;
 import java.util.Arrays;
