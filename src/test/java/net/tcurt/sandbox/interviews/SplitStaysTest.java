@@ -3,13 +3,21 @@ package net.tcurt.sandbox.interviews;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import net.tcurt.sandbox.Method;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class SplitStaysTest {
-  private SplitStays underTest = new SplitStays();
 
-  @Test
-  void case1() {
+  static Stream<Method> methodProvider() {
+    return Stream.of(Method.BRUTE_FORCE, Method.BINARY_SEARCH);
+  }
+
+  @ParameterizedTest
+  @MethodSource("methodProvider")
+  void case1(Method method) {
+    SplitStays underTest = new SplitStays(method);
     SplitStays.Host a = new SplitStays.Host("A", List.of(1, 2, 3, 6, 7, 10, 11));
     SplitStays.Host b = new SplitStays.Host("B", List.of(3, 4, 5, 6, 8, 9, 10, 13));
     SplitStays.Host c = new SplitStays.Host("C", List.of(7, 8, 9, 10, 11));
@@ -49,8 +57,10 @@ public class SplitStaysTest {
    * <li>{@code F: 2-6, A: 7-8}
    * </ol>
    */
-  @Test
-  void case2() {
+  @ParameterizedTest
+  @MethodSource("methodProvider")
+  void case2(Method method) {
+    SplitStays underTest = new SplitStays(method);
     SplitStays.Host a = new SplitStays.Host("A", List.of(6, 7, 8, 11));
     SplitStays.Host b = new SplitStays.Host("B", List.of(2, 3, 4, 5, 6, 8, 9, 10, 13));
     SplitStays.Host c = new SplitStays.Host("C", List.of(7, 8, 9, 10, 11));
