@@ -5,6 +5,7 @@ public enum Method {
   BINARY_SEARCH,
   BINARY_TREE,
   HASH_MAP,
+  HEAP,
   OPTIMIZED,
   RECURSIVE,
   TWO_POINTERS
