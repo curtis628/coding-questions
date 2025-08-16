@@ -1,6 +1,7 @@
 # Java Sandbox
 
 [![Java CI with Gradle](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml/badge.svg)](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml)
+TODO: add codecov badge
 
 A personal sandbox for practicing Java through LeetCode-style coding challenges, data structures, and system design prep.
 
