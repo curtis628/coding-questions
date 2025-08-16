@@ -23,7 +23,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport // report is always generated after tests run
 }
 
 jacocoTestReport {
@@ -37,3 +36,5 @@ jacocoTestReport {
         include '**/*.class'
     })
 }
+
+check.dependsOn jacocoTestReport

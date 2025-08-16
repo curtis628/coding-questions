@@ -27,14 +27,12 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew clean test jacocoTestReport
+      run: ./gradlew build jacocoTestReport
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v5
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: build/reports/jacoco/test/jacocoTestReport.xml
-        fail_ci_if_error: true
+        files: ./build/reports/jacoco/test/jacocoTestReport.xml
 
     - name: Upload Test Reports
       if: always()
