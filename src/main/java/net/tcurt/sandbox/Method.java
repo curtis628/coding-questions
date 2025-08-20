@@ -8,5 +8,6 @@ public enum Method {
   HEAP,
   OPTIMIZED,
   RECURSIVE,
+  SLIDING_WINDOW,
   TWO_POINTERS
 }
