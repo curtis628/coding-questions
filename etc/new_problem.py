@@ -9,8 +9,8 @@ LOCATIONS = {
 }
 PACKAGES = {
     "leetcode": "net.tcurt.sandbox.leetcode",
-    "mock": "net.tcurt.sandbox.leetcode.interviews.mock",
-    "interviews": "net.tcurt.sandbox.leetcode.interviews",
+    "mock": "net.tcurt.sandbox.interviews.mock",
+    "interviews": "net.tcurt.sandbox.interviews",
 }
 
 def init_problem(args):
