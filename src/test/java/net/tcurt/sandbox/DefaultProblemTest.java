@@ -9,6 +9,6 @@ public class DefaultProblemTest {
 
   @Test
   void case1() {
-    assertThat(underTest).isNotNull();
+    assertThat(underTest.dummy()).isEqualTo(0);
   }
 }
