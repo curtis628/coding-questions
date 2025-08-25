@@ -1,6 +1,7 @@
 # Java Sandbox
 
 [![Java CI with Gradle](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml/badge.svg)](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml)
+[![codecov](https://codecov.io/github/curtis628/javasandbox/graph/badge.svg?token=O9JE4JTFPT)](https://codecov.io/github/curtis628/javasandbox)
 
 A personal sandbox for practicing Java through LeetCode-style coding challenges, data structures, and system design prep.
 
