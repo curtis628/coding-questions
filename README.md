@@ -1,11 +1,11 @@
-# Java Sandbox
+# Coding Questions
 
-[![Java CI with Gradle](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml/badge.svg)](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml)
-[![codecov](https://codecov.io/github/curtis628/javasandbox/graph/badge.svg?token=O9JE4JTFPT)](https://codecov.io/github/curtis628/javasandbox)
+[![Java CI with Gradle](https://github.com/curtis628/coding-questions/actions/workflows/gradle.yml/badge.svg)](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml)
+[![codecov](https://codecov.io/github/curtis628/coding-questions/graph/badge.svg?token=O9JE4JTFPT)](https://codecov.io/github/curtis628/javasandbox)
 
-A personal sandbox for practicing Java through LeetCode-style coding challenges, data structures, and system design prep.
+A personal sandbox for practicing LeetCode-style coding challenges, data structures, and system design prep.
 
-This project serves as a testing ground for algorithms, problem-solving techniques, and core Java concepts — with a focus on interview preparation.
+This project serves as a testing ground for algorithms, problem-solving techniques, and core coding with a focus on interview preparation.
 
 ---
 
@@ -14,7 +14,7 @@ This project serves as a testing ground for algorithms, problem-solving techniqu
 The main goal of this repo is to:
 
 - 🧠 Practice **[LeetCode](https://leetcode.com/problemset/)** and technical interview problems
-- 📦 Explore and reinforce **core Java fundamentals**
+- 📦 Explore and reinforce **core coding fundamentals**
 - 🛠️ Experiment with utilities, performance tuning, and coding patterns
 - ✅ Use **test-driven development** with JUnit to verify solutions
 
@@ -34,8 +34,8 @@ The main goal of this repo is to:
 Clone the repo and run tests:
 
 ```bash
-git clone https://github.com/curtis628/javasandbox.git
-cd javasandbox
+git clone https://github.com/curtis628/coding-questions.git
+cd coding-questions
 ./gradlew test
 ```
 
