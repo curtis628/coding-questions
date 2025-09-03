@@ -5,3 +5,11 @@ coverage:
         target: auto      # baseline = whatever your first run is
         threshold: 1%     # allow a little drift without failing
     patch: off            # don’t bother with per-PR patch coverage
+
+flags:
+  java:
+    paths:
+      - java/
+  python:
+    paths:
+      - python/

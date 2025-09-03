@@ -1,3 +1,9 @@
+# --- General ---
+.DS_Store
+*.log
+*.tmp
+
+# --- Java / Gradle / Python ---
 .gradle
 build/
 __pycache__
@@ -17,5 +23,9 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### Mac OS ###
-.DS_Store
+# Coverage / test reports
+.python-version
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
