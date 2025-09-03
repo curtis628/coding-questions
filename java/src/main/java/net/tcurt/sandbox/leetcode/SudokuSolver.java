@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SudokuSolver {
 
+  // 9x9 grid
   private static final int N = 9;
 
   private record Cell(int row, int col) {}
