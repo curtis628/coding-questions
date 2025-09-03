@@ -1,7 +1,7 @@
 # Coding Questions
 
 [![Java CI with Gradle](https://github.com/curtis628/coding-questions/actions/workflows/gradle.yml/badge.svg)](https://github.com/curtis628/javasandbox/actions/workflows/gradle.yml)
-[![codecov](https://codecov.io/github/curtis628/coding-questions/graph/badge.svg?token=O9JE4JTFPT)](https://codecov.io/github/curtis628/javasandbox)
+[![codecov](https://codecov.io/github/curtis628/coding-questions/graph/badge.svg?token=O9JE4JTFPT)](https://codecov.io/github/curtis628/coding-questions)
 
 A personal sandbox for practicing LeetCode-style coding challenges, data structures, and system design prep.
 
