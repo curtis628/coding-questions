@@ -13,6 +13,10 @@ jobs:
     permissions:
       contents: read
 
+    defaults:
+      run:
+        working-directory: java  # 👈 all `run` steps now execute inside /java
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -32,6 +36,8 @@ jobs:
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
+      with:
+        working-directory: java   # 👈 tell Codecov where to look
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
@@ -41,5 +47,5 @@ jobs:
       with:
         name: test-reports
         path: |
-          build/reports/tests/test
-          build/reports/jacoco/test/html
+          java/build/reports/tests/test
+          java/build/reports/jacoco/test/html
