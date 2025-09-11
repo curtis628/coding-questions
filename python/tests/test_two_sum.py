@@ -15,3 +15,6 @@ def test_two_sum(nums, target, expected):
     solver = Solution()
     result = solver.twoSum(nums, target)
     assert result == expected
+
+    result = solver.two_sum_sort_and_binary_search(nums, target)
+    assert result == expected
