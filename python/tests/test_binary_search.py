@@ -1,4 +1,5 @@
-from common.binary_search import binary_search, binary_search_left, binary_search_right
+from common.binary_search import (binary_search, binary_search_left,
+                                  binary_search_right)
 
 
 def test_binary_searches():

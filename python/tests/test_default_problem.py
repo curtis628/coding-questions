@@ -1,4 +1,5 @@
 import pytest
+
 from template.default_problem import Solution
 
 
