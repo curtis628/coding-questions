@@ -1,15 +1,26 @@
 """133: https://leetcode.com/problems/clone-graph"""
 
+import logging
 from collections import deque
 from typing import Optional
 
+from common.method import Method
 from common.node import Node
+
+logger = logging.getLogger(__name__)
 
 
 class Solution:
+
+    def __init__(self, method: Method = None):
+        self.method = method if method else Method.DFS
+
     def cloneGraph(self, node: Optional["Node"]) -> Optional["Node"]:
-        # return self._dfs(node, {}) if node else None
-        return self._bfs(node) if node else None
+        logger.debug(f"Testing via {self.method}")
+        if self.method == Method.BFS:
+            return self._bfs(node) if node else None
+        else:
+            return self._dfs(node, {}) if node else None
 
     def _dfs(self, curr, copy_dict):
         if curr in copy_dict:

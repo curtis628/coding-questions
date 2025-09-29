@@ -1,3 +1,6 @@
+import pytest
+
+from common.method import Method
 from common.node import Node
 from leetcode.clone_graph import Solution
 
@@ -12,7 +15,11 @@ def test_edge():
     assert actual.val == 1
 
 
-def test_basic():
+@pytest.mark.parametrize(
+    "method",
+    [Method.BFS, Method.DFS],
+)
+def test_basic(method):
     """
     Basic test case using graph::
 
@@ -20,7 +27,7 @@ def test_basic():
          |     |
         (4) — (3)
     """
-    solver = Solution()
+    solver = Solution(method)
 
     node1 = Node(1)
     node2 = Node(2)
