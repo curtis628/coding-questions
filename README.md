@@ -22,8 +22,11 @@ The main goals of this repo are to:
 ## ✏️ Problem-Solving Journal
 Brief notes to help me remember the important lessons/takeaways from memorable coding challenges.
 
-- [Candy](https://leetcode.com/problems/candy/): handled opposing neighbor constraints with 
-  two directional sweeps. Solve one dimension at a time and then combine results.
+- [Candy](https://leetcode.com/problems/candy/):
+    - handled opposing neighbor constraints with two directional sweeps. Solve one dimension at a time and then combine results.
+- [Happy Number](https://leetcode.com/problems/happy-number):
+    - initially tracked "seen" numbers in a `set` - but that used `O(k)` space (where `k` is cycle length).
+    - used Floyd's Cycle Detection (tortoise and hare) to detect cycle (as seen in linked list problems) to use `O(1)` space.
 
 ---
 
