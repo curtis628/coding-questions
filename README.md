@@ -27,6 +27,11 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
 - [Happy Number](https://leetcode.com/problems/happy-number):
     - initially tracked "seen" numbers in a `set` - but that used `O(k)` space (where `k` is cycle length).
     - used Floyd's Cycle Detection (tortoise and hare) to detect cycle (as seen in linked list problems) to use `O(1)` space.
+- [Merge Intervals](https://leetcode.com/problems/merge-intervals/):
+    - Too much branching? Don't peek ahead. Look at current and instead compare to what you've already built.
+    - Greedy problems often add a candidate `result` that's incrementally correct. Can modify it later if we discover we need to.
+- [Insert Interval](https://leetcode.com/problems/insert-interval):
+    - spaghetti-like code with lots of edge cases? Consider solving it in multiple phases instead of interleaving all into a single pass. 
 
 ---
 
