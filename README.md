@@ -24,6 +24,11 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
 
 - [Candy](https://leetcode.com/problems/candy/): `#twopass #dp`
     - handled opposing neighbor constraints with two directional sweeps. Solve one dimension at a time and then combine results.
+- [Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words): `#slidingwindow`
+    - generate all permutations: `O(k!)` --> very slow
+    - optimal is sliding window: slide not character-by-character, but word-by-word (since words are fixed lengths).
+    - multi-offset scanning: `word_len` possible offsets to cover all possible alignments
+    - reset window when encountering invalid word
 - [Happy Number](https://leetcode.com/problems/happy-number): `#cycledetection`
     - initially tracked "seen" numbers in a `set` - but that used `O(k)` space (where `k` is cycle length).
     - used Floyd's Cycle Detection (tortoise and hare) to detect cycle (as seen in linked list problems) to use `O(1)` space.

@@ -13,6 +13,6 @@ from leetcode.candy import Solution
         ([5, 6, 7, 8, 8, 8, 7, 6, 5], 21),
     ],
 )
-def test_dummy(ratings, expected_total_candies):
+def test_candy(ratings, expected_total_candies):
     solver = Solution()
     assert solver.candy(ratings) == expected_total_candies
