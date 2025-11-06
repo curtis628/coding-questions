@@ -40,6 +40,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
 - [Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/): `#intervals #greedy`
     - merging intervals or creating unions? sort by `start` coordinate
     - select minimal hits (greedy, meeting rooms): sort by `end` coordinate to greedily “take earliest finishing one” strategy
+- [Minimum Genetic Mutation](https://leetcode.com/problems/minimum-genetic-mutation): `#dfs #bfs #shortestpath`
+    - _Initial_: DFS + backtracking, exploring all unvisited `bank` entries (size `N`) that differ by 1 char
+      - Neighbor check: `O(N × L)`; visiting up to `N` → overall `O(N² × L)` (fine for small banks)
+    - _Optimal_: Treat each gene as a node in an unweighted graph → BFS for shortest path
+      - Use **char-substitute** (not bank-scan): for each position (`L=8`) and letter (`A={A,C,G,T}`), generate mutations and check membership in `bank` (`set` for `O(1)` lookup)
+      - Neighbor gen: `O(L × A)`; visiting up to `N` → overall `O(N × L × A)` ≈ `O(N × L)`
+
 
 ---
 
