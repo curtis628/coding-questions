@@ -46,6 +46,9 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Optimal_: Treat each gene as a node in an unweighted graph → BFS for shortest path
       - Use **char-substitute** (not bank-scan): for each position (`L=8`) and letter (`A={A,C,G,T}`), generate mutations and check membership in `bank` (`set` for `O(1)` lookup)
       - Neighbor gen: `O(L × A)`; visiting up to `N` → overall `O(N × L × A)` ≈ `O(N × L)`
+- [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/): `#linkedlist #twopointers`
+    - Use two pointers to skip over duplicate blocks. Only append to `result_tail` if no duplicates found.
+    - Iterate over `while slow:` if "worker/processor" is building the list; use `while fast:` if "scout" is looking ahead
 
 
 ---
