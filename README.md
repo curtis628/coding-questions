@@ -49,7 +49,10 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
 - [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/): `#linkedlist #twopointers`
     - Use two pointers to skip over duplicate blocks. Only append to `result_tail` if no duplicates found.
     - Iterate over `while slow:` if "worker/processor" is building the list; use `while fast:` if "scout" is looking ahead
-
+- [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree): `#binarytree #dfs #bfs`
+    - _Goal_: Swap every node’s left and right subtrees.
+    - _Complexity_: `O(n)` time (visit all nodes), `O(h)` space (stack/queue; `h` = tree height)
+    - _Key insight_: Inversion is a local operation; no need to collect an entire level or rebuild parent-child relationships
 
 ---
 
