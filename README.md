@@ -61,6 +61,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Goal_: Swap every node’s left and right subtrees.
     - _Complexity_: `O(n)` time (visit all nodes), `O(h)` space (stack/queue; `h` = tree height)
     - _Key insight_: Inversion is a local operation; no need to collect an entire level or rebuild parent-child relationships
+- [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal): `#binarytree #dfs #recursion`
+    - _Goal_: Rebuild the original binary tree from preorder (root→left→right) and inorder (left→root→right) traversal sequences.
+    - _Approach_: Recursively pick the next root from preorder and split inorder into left/right subtrees at that root’s index.
+        - **Naive**: uses `pop(0)` and `index()` per recursion → `O(n²)` (+ splicing overhead)
+        - **Optimal**: use hashmap (`val→index`) and preorder pointer → `O(n)` overall
+    - _Complexity_: `O(n)` time, `O(n)` space (hashmap + recursion stack)
+    - _Key insight_: Preorder defines **build order**, while inorder defines **boundaries** of left and right subtrees.
 
 ---
 
