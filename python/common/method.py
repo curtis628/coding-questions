@@ -6,3 +6,4 @@ class Method(Enum):
     DFS = auto()
     BRUTE_FORCE = auto()
     OPTIMAL = auto()
+    ITERATIVE = auto()

@@ -68,6 +68,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
         - **Optimal**: use hashmap (`val→index`) and preorder pointer → `O(n)` overall
     - _Complexity_: `O(n)` time, `O(n)` space (hashmap + recursion stack)
     - _Key insight_: Preorder defines **build order**, while inorder defines **boundaries** of left and right subtrees.
+- [Path Sum](https://leetcode.com/problems/path-sum): `#binarytree #dfs #recursion #iterative`
+    - _Goal_: Determine if the tree has any root-to-leaf path where the sum of node values equals `targetSum`.
+    - _Approach_: DFS recursion carrying the remaining `targetSum` down the path; subtract current node’s value at each step.
+        - At leaf: check if remaining sum is 0 → short-circuit return.
+        - NOTE: iterative variant: stack of `(node, running_sum)` pairs.
+    - _Complexity_: `O(n)` time, `O(h)` space (`h` = tree height)
 
 ---
 
