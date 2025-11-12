@@ -74,6 +74,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
         - At leaf: check if remaining sum is 0 → short-circuit return.
         - NOTE: iterative variant: stack of `(node, running_sum)` pairs.
     - _Complexity_: `O(n)` time, `O(h)` space (`h` = tree height)
+- [Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers): `#binarytree #dfs #recursion`
+    - _Goal_: Compute the sum of all numbers formed by root-to-leaf paths (each node contributes a digit).
+    - _Approach_: DFS carrying the running number (`curr * 10 + node.val`) instead of full path lists.
+      - At leaf: return accumulated number; otherwise return left + right subtree sums.
+    - _Complexity_: `O(n)` time, `O(h)` space (`h` = tree height)
+    - _Key insight_: Carry numeric state through recursion rather than reconstructing strings or arrays — it’s both simpler and faster.
 
 ---
 
