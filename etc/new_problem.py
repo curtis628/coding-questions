@@ -63,10 +63,10 @@ def init_problem(args):
         print(f"Initializing {args.type} test     code in {args.lang}: {test_filename}")
         for line in fin:
             out = line.replace("DefaultProblem", args.problem_name)
-            out = line.replace(
+            out = out.replace(
                 "template.default_problem", f"{args.type}.{args.problem_name}"
             )
-            if line.startswith("package"):
+            if out.startswith("package"):
                 out = "package " + JAVA_PACKAGES[args.type] + ";\n"
             fout.write(out)
 

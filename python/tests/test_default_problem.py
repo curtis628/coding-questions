@@ -11,6 +11,6 @@ from template.default_problem import Solution
         ("", 0),
     ],
 )
-def test_dummy(input_str, expected):
+def test_DefaultProblem(input_str, expected):
     solver = Solution()
     assert solver.dummy(input_str) == expected
