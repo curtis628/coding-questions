@@ -80,6 +80,14 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       - At leaf: return accumulated number; otherwise return left + right subtree sums.
     - _Complexity_: `O(n)` time, `O(h)` space (`h` = tree height)
     - _Key insight_: Carry numeric state through recursion rather than reconstructing strings or arrays — it’s both simpler and faster.
+- [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator): `#binarytree #iterator #inorder #dfs #stack #generator`
+    - _Goal_: Implement an in-order iterator for a given BST.
+    - _Approaches_:
+      1. recursive generator (`yield from`) with one-element lookahead buffer for `hasNext()`.
+      2. iterative stack maintaining left descent. Avoids 1,000 call depth limit for deep trees.
+    - _Complexity_: `O(1)` amortized per `next()`, `O(h)` space (`h` = tree height)
+    - _Key insight_: Both recursion and an explicit stack represent the same traversal state — the call stack vs. manual stack.
+
 
 ---
 
