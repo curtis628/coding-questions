@@ -87,6 +87,14 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       2. iterative stack maintaining left descent. Avoids 1,000 call depth limit for deep trees.
     - _Complexity_: `O(1)` amortized per `next()`, `O(h)` space (`h` = tree height)
     - _Key insight_: Both recursion and an explicit stack represent the same traversal state — the call stack vs. manual stack.
+- [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes): `#binarytree #recursion #complete #divideandconquer`
+    - _Goal_: Count nodes in a complete binary tree faster than `O(n)`.
+    - _Approach_: Compare heights of leftmost and rightmost subtrees:
+        - If equal → subtree is perfect → count directly with `2^h - 1`.
+        - Else → recursively count `1 + left + right`.
+    - _Complexity_: Each call computes heights in `O(2 log n)`, and recursion depth is `O(log n)` → total `O((log n)²)` time, `O(log n)` space.
+    - _Key insight_: Use the complete tree property to skip entire perfect subtrees instead of traversing every node.
+
 
 
 ---
