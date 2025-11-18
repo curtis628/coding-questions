@@ -100,6 +100,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Techniques_: Stack-based context switching (optimal), or recursive descent using call stack.
     - _Key insight_: Parentheses only affect **local context** → no other operator precedence needed.
     - _Complexity_: `O(n)` time, `O(n)` stack (worst case nesting)
+- [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view): `#binarytree #bfs #dfs`
+    - _Goal_: Return the visible node at each depth when viewing the tree from the right side.
+    - _Approach (BFS)_: Level-order traversal → take the **last** node on each level.
+    - _Approach (DFS)_: Traverse **right-first** → the first node seen at each depth is visible from the right side.
+    - _Key insight_: Each depth contributes exactly one node to the result.
+    - _Complexity_: `O(n)` time, `O(h)` space (`h` = height)
 
 ---
 
