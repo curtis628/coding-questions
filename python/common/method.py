@@ -7,3 +7,4 @@ class Method(Enum):
     BRUTE_FORCE = auto()
     OPTIMAL = auto()
     ITERATIVE = auto()
+    RECURSIVE = auto()

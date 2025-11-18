@@ -94,8 +94,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
         - Else → recursively count `1 + left + right`.
     - _Complexity_: Each call computes heights in `O(2 log n)`, and recursion depth is `O(log n)` → total `O((log n)²)` time, `O(log n)` space.
     - _Key insight_: Use the complete tree property to skip entire perfect subtrees instead of traversing every node.
-
-
+- [Basic Calculator](https://leetcode.com/problems/basic-calculator): `#stack #parsing #recursion`
+    - _Goal_: Evaluate `+`, `-`, and parentheses correctly without using `eval()`.
+    - _Approach_: Single left→right pass. Maintain `result`, `current number`, and `sign`. Push and restore context only when entering/exiting parentheses.
+    - _Techniques_: Stack-based context switching (optimal), or recursive descent using call stack.
+    - _Key insight_: Parentheses only affect **local context** → no other operator precedence needed.
+    - _Complexity_: `O(n)` time, `O(n)` stack (worst case nesting)
 
 ---
 
