@@ -2,7 +2,7 @@ import pytest
 
 from common.method import Method
 from common.tree_node import TreeNode
-from leetcode.bst_iterator import BSTIterator
+from leetcode.binarytree.bst_iterator import BSTIterator
 
 
 @pytest.mark.parametrize(

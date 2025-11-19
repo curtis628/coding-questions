@@ -1,7 +1,7 @@
 import pytest
 
 from common.method import Method
-from leetcode.concat_all_words_substring import Solution
+from leetcode.strings.concat_all_words_substring import Solution
 
 
 @pytest.mark.parametrize(

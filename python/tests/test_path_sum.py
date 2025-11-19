@@ -2,7 +2,7 @@ import pytest
 
 from common.method import Method
 from common.tree_node import TreeNode
-from leetcode.path_sum import Solution
+from leetcode.binarytree.path_sum import Solution
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.merge_intervals import Solution
+from leetcode.intervals.merge_intervals import Solution
 
 
 @pytest.mark.parametrize(

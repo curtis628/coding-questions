@@ -1,7 +1,7 @@
 import pytest
 
 from common.method import Method
-from leetcode.basic_calculator import Solution
+from leetcode.stack_queue.basic_calculator import Solution
 
 
 @pytest.mark.parametrize(

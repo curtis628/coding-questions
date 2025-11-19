@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.happy_number import Solution
+from leetcode.hashmap.happy_number import Solution
 
 
 @pytest.mark.parametrize(

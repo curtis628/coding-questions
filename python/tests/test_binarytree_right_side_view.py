@@ -2,7 +2,7 @@ import pytest
 
 from common.method import Method
 from common.tree_node import TreeNode
-from leetcode.binarytree_right_side_view import Solution
+from leetcode.binarytree.binarytree_right_side_view import Solution
 
 
 @pytest.mark.parametrize(

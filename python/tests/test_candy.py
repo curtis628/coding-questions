@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.candy import Solution
+from leetcode.dp.candy import Solution
 
 
 @pytest.mark.parametrize(

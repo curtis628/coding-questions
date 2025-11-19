@@ -4,7 +4,7 @@ import pytest
 
 from common.method import Method
 from common.tree_node import TreeNode
-from leetcode.bst_from_preorder_inorder import Solution
+from leetcode.binarytree.bst_from_preorder_inorder import Solution
 
 
 @pytest.mark.parametrize(

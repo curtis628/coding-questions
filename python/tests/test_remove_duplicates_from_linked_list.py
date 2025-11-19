@@ -1,7 +1,7 @@
 import pytest
 
 from common.list_node import ListNode
-from leetcode.remove_duplicates_from_linked_list import Solution
+from leetcode.linkedlist.remove_duplicates_from_linked_list import Solution
 
 
 @pytest.mark.parametrize(

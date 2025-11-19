@@ -4,7 +4,7 @@ import pytest
 
 from common.method import Method
 from common.tree_node import TreeNode
-from leetcode.invert_binary_tree import Solution
+from leetcode.binarytree.invert_binary_tree import Solution
 
 
 @pytest.mark.parametrize(

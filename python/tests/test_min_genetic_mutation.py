@@ -1,7 +1,7 @@
 import pytest
 
 from common.method import Method
-from leetcode.min_genetic_mutation import Solution
+from leetcode.graph.min_genetic_mutation import Solution
 
 
 @pytest.mark.parametrize(

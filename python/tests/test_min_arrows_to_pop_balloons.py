@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.min_arrows_to_pop_balloons import Solution
+from leetcode.intervals.min_arrows_to_pop_balloons import Solution
 
 
 @pytest.mark.parametrize(

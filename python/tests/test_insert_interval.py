@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.insert_interval import Solution
+from leetcode.intervals.insert_interval import Solution
 
 
 @pytest.mark.parametrize(

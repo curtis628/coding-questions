@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.roman_to_integer import Solution
+from leetcode.strings.roman_to_integer import Solution
 
 
 @pytest.mark.parametrize(

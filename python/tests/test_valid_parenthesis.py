@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.valid_parenthesis import Solution
+from leetcode.stack_queue.valid_parenthesis import Solution
 
 
 @pytest.mark.parametrize(

@@ -1,7 +1,7 @@
 import pytest
 
 from common.tree_node import TreeNode
-from leetcode.sum_to_root_leaf_nums import Solution
+from leetcode.binarytree.sum_to_root_leaf_nums import Solution
 
 
 @pytest.mark.parametrize(

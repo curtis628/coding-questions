@@ -2,7 +2,7 @@ import pytest
 
 from common.method import Method
 from common.node import Node
-from leetcode.clone_graph import Solution
+from leetcode.graph.clone_graph import Solution
 
 
 def test_edge():

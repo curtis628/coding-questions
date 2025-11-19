@@ -1,7 +1,7 @@
 import pytest
 
 from common.tree_node import TreeNode
-from leetcode.count_complete_tree_nodes import Solution
+from leetcode.binarytree.count_complete_tree_nodes import Solution
 
 
 @pytest.mark.parametrize(
