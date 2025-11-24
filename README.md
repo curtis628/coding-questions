@@ -111,7 +111,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Approach_: Scan every cell. When you find an unvisited land cell (`'1'`), increment the island count and run a flood-fill (DFS or BFS) from there to mark all connected land cells as visited so they’re not counted again.
     - _Techniques_: Grid-based DFS/BFS, `visited[m][n]` boolean matrix, 4-direction neighbor vectors, mark-as-visited on entry/enqueue to avoid revisits.
     - _Key insight_: The problem is just counting **connected components of land**; no need to visit every cell. Each cell is processed at most once.
-    - _Complexity_: `O(m * n)` time (each cell visited ≤ 1×); `O(m * n)` space for `visited` plus DFS stack or BFS queue in the worst case.
+    - _Complexity_: `O(m·n)` time (each cell visited ≤ 1×); `O(m·n)` space for `visited` plus DFS stack or BFS queue in the worst case.
+- [Surrounded Regions](https://leetcode.com/problems/surrounded-regions): `#graph #dfs`
+    - _Goal_: Flip `'O'` regions fully surrounded by `'X'` into `'X'`, while leaving border-connected `'O'` regions unchanged.
+    - _Approach_: Instead of checking which `'O'` **are surrounded**, identify which `'O'` **cannot be surrounded** (those connected to the border).
+      Temporarily mark all `'O'` as `'*'`, DFS/BFS from border cells to restore all border-connected `'*'` to `'O'`, and flip remaining `'*'` to `'X'`.
+    - _Key insight_: Avoid quadratic “check enclosedness” by marking all **border-reachable** `'O'` as safe; anything else is guaranteed enclosed.
+    - _Complexity_: `O(m·n)` time; `O(m·n)` worst-case space for DFS recursion (or `O(1)` extra space with BFS).
 
 
 ---
