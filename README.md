@@ -106,6 +106,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Approach (DFS)_: Traverse **right-first** → the first node seen at each depth is visible from the right side.
     - _Key insight_: Each depth contributes exactly one node to the result.
     - _Complexity_: `O(n)` time, `O(h)` space (`h` = height)
+- [Number of Islands](https://leetcode.com/problems/number-of-islands): `#graph #dfs #bfs #floodfill`
+    - _Goal_: Count how many 4-directionally connected groups of `'1'` (land) exist in a `m x n` grid of `'1'`/`'0'`.
+    - _Approach_: Scan every cell. When you find an unvisited land cell (`'1'`), increment the island count and run a flood-fill (DFS or BFS) from there to mark all connected land cells as visited so they’re not counted again.
+    - _Techniques_: Grid-based DFS/BFS, `visited[m][n]` boolean matrix, 4-direction neighbor vectors, mark-as-visited on entry/enqueue to avoid revisits.
+    - _Key insight_: The problem is just counting **connected components of land**; no need to visit every cell. Each cell is processed at most once.
+    - _Complexity_: `O(m * n)` time (each cell visited ≤ 1×); `O(m * n)` space for `visited` plus DFS stack or BFS queue in the worst case.
+
 
 ---
 
