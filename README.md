@@ -118,6 +118,24 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       Temporarily mark all `'O'` as `'*'`, DFS/BFS from border cells to restore all border-connected `'*'` to `'O'`, and flip remaining `'*'` to `'X'`.
     - _Key insight_: Avoid quadratic “check enclosedness” by marking all **border-reachable** `'O'` as safe; anything else is guaranteed enclosed.
     - _Complexity_: `O(m·n)` time; `O(m·n)` worst-case space for DFS recursion (or `O(1)` extra space with BFS).
+- [Course Schedule](https://leetcode.com/problems/course-schedule): `#graph #topogicalsort #kahn #bfs`
+    - _Goal_: Determine if all courses can be finished given prerequisite pairs (detect if the directed graph has a cycle).
+    - _Approach_: Use **Kahn’s Algorithm** (BFS topological sort):
+        - Build adjacency list `prereq → dependents`
+        - Compute `in_degree` for every course
+        - Push all nodes with zero in-degree into a queue
+        - Pop one-by-one, decrement neighbors’ in-degree, and enqueue new zero in-degree nodes
+    - _Key insight_: A cycle means some courses never reach zero in-degree. Topological sorting will stall early in that case.
+    - _Complexity_:
+        - **Time:** `O(V + E)`
+            - Build adjacency list + in-degree: touches each edge once → `O(E)`
+            - Initialize queue by scanning all courses: touches each node once → `O(V)`
+            - BFS loop: each node dequeued once (`O(V)`), each edge’s in-degree decremented once (`O(E)`)
+            - Initializing (`O(V) + O(E)`) + BFS Loop (`O(V) + O(E)`) reduces to: `O(V + E)`
+        - **Space:** `O(V + E)`
+            - Adjacency list stores all edges → `O(E)`
+            - In-degree array stores all nodes → `O(V)`
+            - Queue holds at most `V` nodes → `O(V)`
 
 
 ---
