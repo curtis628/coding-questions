@@ -144,6 +144,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Complexity_: `O(n²)` time + `O(n²)` space (each square explored at most once).
     - _Key insight_: This is a **shortest-path on an unweighted graph**. BFS guarantees the minimal number of moves. 
       A visited square never needs to be revisited because BFS ensures the first visit is the shortest.
+- [Word Ladder](https://leetcode.com/problems/word-ladder): `#bfs #graph #shortestpath`
+    - _Goal_: Find the shortest transformation sequence length from `beginWord` → `endWord`, changing one letter at a time, using only dictionary words.
+    - _Approach_: Use **BFS** (shortest path) + generate neighbors by **mutating each position with letters `a–z`**, checking membership in a `set` for `O(1)` lookup.
+        - Mark words visited immediately when discovered (`word_set.remove`).
+        - No need to track separate `visited` sets; the first time you encounter a word, it's on the shortest path
+    - _Complexity_: `O(26 × L × N)` time, `O(N)` space. (`L` is length of `beginWord` and `N` is number of words in `wordList`)  
+    - _Key insight_: Never scan the full dictionary to find neighbors.  **Generate all possible neighbors directly** (L × 26) for fast BFS expansion.
 
 
 ---
