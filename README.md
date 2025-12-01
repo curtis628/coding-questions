@@ -136,6 +136,14 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
             - Adjacency list stores all edges → `O(E)`
             - In-degree array stores all nodes → `O(V)`
             - Queue holds at most `V` nodes → `O(V)`
+- [Snakes and Ladders](https://leetcode.com/problems/snakes-and-ladders): `#bfs #graph #matrix #shortestpath`
+    - _Goal_: Find the minimum number of dice rolls required to reach the final square.
+    - _Approach_: 
+        - Convert the 2D board’s **boustrophedon** numbering into a 1D `flat_board` for easier indexing.
+        - Use **BFS on board positions** (nodes = squares; edges = dice rolls 1–6).
+    - _Complexity_: `O(n²)` time + `O(n²)` space (each square explored at most once).
+    - _Key insight_: This is a **shortest-path on an unweighted graph**. BFS guarantees the minimal number of moves. 
+      A visited square never needs to be revisited because BFS ensures the first visit is the shortest.
 
 
 ---
