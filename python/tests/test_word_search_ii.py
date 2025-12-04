@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.word_search_ii import Solution
+from leetcode.backtrack.word_search_ii import Solution
 
 
 @pytest.mark.parametrize(

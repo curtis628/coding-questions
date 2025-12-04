@@ -1,4 +1,4 @@
-from leetcode.word_dictionary import WordDictionary
+from leetcode.backtrack.word_dictionary import WordDictionary
 
 
 def test_word_dictionary():
