@@ -181,6 +181,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       Append it, recurse with `start = i+1` (forward-only prevents duplicates), then pop to backtrack.
     - _Key insight_: Avoid outer loops. Clearly define parameters.
     - _Complexity_: `O(k · C(n,k))`: There are `C(n,k)` ("n choose k") combinations, and each one costs `O(k)` to build,
+- [Permutations](https://leetcode.com/problems/permutations): `#backtracking #dfs`
+    - _Goal_: Return all permutations of a list of distinct integers.
+    - _Approach_: Use DFS/backtracking. Maintain a `comb` (current permutation) and a `visited` boolean array (slightly preferred to maintaining a `set`)
+      At each step, try every unused number: mark it visited, append it, recurse, then unmark and pop to backtrack.
+    - _Complexity_:
+        - **Time**: `O(n · n!)`: There are `n!` permutations. Each permutation costs `O(n)` to build (copy).
+        - **Space**: `O(n)` recursion depth + `O(n)` visited array (output excluded)
 
 
 
