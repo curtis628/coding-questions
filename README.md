@@ -151,6 +151,17 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
         - No need to track separate `visited` sets; the first time you encounter a word, it's on the shortest path
     - _Complexity_: `O(26 × L × N)` time, `O(N)` space. (`L` is length of `beginWord` and `N` is number of words in `wordList`)  
     - _Key insight_: Never scan the full dictionary to find neighbors.  **Generate all possible neighbors directly** (L × 26) for fast BFS expansion.
+- [Design Add and Search Words](https://leetcode.com/problems/design-add-and-search-words-data-structure): `#trie #dfs #backtracking`
+    - _Goal_: Implement a word dictionary supporting `addWord(word)` and `search(word)` where `search` may contain the wildcard `'.'` matching any single character.
+    - _Approach_: Store all added words in a Trie.
+      - For normal characters, descend to the matching child.
+      - For `'.'`, recursively try **all** children (`DFS`) with the next index. DFS should return `bool`.
+      - Pass `ndx` rather than shared mutable structures to ensure each branch explores the correct substring.
+    - _Key insight_: Each DFS branch (exploring multiple possible paths) must maintain its **own index** and not share global state.
+      Clean DFS returned a `bool` instead of modifying global state.
+    - _Complexity_: `addWord: O(L)` and `search (exact): O(L)`, where `L` is (maximum) word length.
+      Wildcard search may branch, worst-case `O(Σ^k)` (alphabet: `O(26^k)`) for `k` wildcards, but usually pruned heavily by the Trie.
+      Space: `O(N·L)` for `N` words.
 
 
 ---
