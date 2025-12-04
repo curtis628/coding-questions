@@ -175,6 +175,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Complexity_:
         - **Time**: `O(n · 4^n)`: `n` → number of digits. max branching factor (digits 7/9): `4^n`. Each result takes `O(n)` to build (string join).
         - **Space**: `O(n)` recursion depth + `O(n)` path; output size dominates (`4^n` strings).
+- [Combinations](https://leetcode.com/problems/combinations): `#backtracking #dfs`
+    - _Goal_: Return all size-`k` combinations chosen from numbers `1…n` without regard to order.
+    - _Approach_: Use DFS/backtracking. Each iteration has a `start`, chooses `i` in the range `[start…n]`.
+      Append it, recurse with `start = i+1` (forward-only prevents duplicates), then pop to backtrack.
+    - _Key insight_: Avoid outer loops. Clearly define parameters.
+    - _Complexity_: `O(k · C(n,k))`: There are `C(n,k)` ("n choose k") combinations, and each one costs `O(k)` to build,
 
 
 
