@@ -162,6 +162,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Complexity_: `addWord: O(L)` and `search (exact): O(L)`, where `L` is (maximum) word length.
       Wildcard search may branch, worst-case `O(Σ^k)` (alphabet: `O(26^k)`) for `k` wildcards, but usually pruned heavily by the Trie.
       Space: `O(N·L)` for `N` words.
+- [Word Search II](https://leetcode.com/problems/word-search-ii): `#trie #dfs #backtracking`
+    - _Goal_: Given a 2D board and a list of words, return all words that can be formed via adjacent N/S/E/W cells without revisiting. Brute force (search each word independently) is too slow.
+    - _Approach_: Build a Trie of all words. DFS from each board cell, following only Trie-valid prefixes to prune dead paths early. Mark board cells in-place (`'#'`) during DFS to avoid revisiting, then restore on backtrack.
+      When reaching a Trie node with `word`, add it to results and null it out to avoid duplicates; optionally prune empty Trie branches.
+    - _Key insight_: Instead of searching the board **for every word**, search the board **once** while letting the Trie cut off invalid branches immediately. Trie prefix pruning transforms exponential brute force into a feasible search.
+    - _Complexity_: Worst-case `O(m·n·4^k)` for DFS branching depth `k`, but Trie pruning usually makes it near `O(m·n)`. Trie build: `O(total word length)`. DFS space: `O(k)` recursion depth.
+
 
 
 ---
