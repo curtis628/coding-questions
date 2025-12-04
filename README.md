@@ -188,6 +188,12 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Complexity_:
         - **Time**: `O(n · n!)`: There are `n!` permutations. Each permutation costs `O(n)` to build (copy).
         - **Space**: `O(n)` recursion depth + `O(n)` visited array (output excluded)
+- [Combination Sum](https://leetcode.com/problems/combination-sum): `#backtracking #dfs`
+    - _Goal_: Return all unique combinations of candidates that sum to `target`. Each number may be used unlimited times.
+    - _Approach_: Sort candidates and use DFS with backtracking.
+      At each step, choose any candidate at index ≥ `start` to keep combinations non-decreasing (prevents duplicates).
+      Subtract the chosen number from `remaining`, recurse with the **same index** to allow reuse, and backtrack on return. Stop when `remaining == 0`.
+    - _Key insight_: Sorting + restricting DFS to forward indices ensures uniqueness naturally — no sets or post-deduplication required.
 
 
 
