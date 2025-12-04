@@ -168,6 +168,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       When reaching a Trie node with `word`, add it to results and null it out to avoid duplicates; optionally prune empty Trie branches.
     - _Key insight_: Instead of searching the board **for every word**, search the board **once** while letting the Trie cut off invalid branches immediately. Trie prefix pruning transforms exponential brute force into a feasible search.
     - _Complexity_: Worst-case `O(m·n·4^k)` for DFS branching depth `k`, but Trie pruning usually makes it near `O(m·n)`. Trie build: `O(total word length)`. DFS space: `O(k)` recursion depth.
+- [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number): `#backtracking #dfs`
+    - _Goal_: Given a digit string (2–9), return all possible letter combinations following phone keypad mappings.
+    - _Approach_: Use DFS/backtracking. At each digit, iterate its mapped letters, append one letter, recurse to the next digit, then pop to backtrack. Collect a completed string when its length equals the input length.
+    - _Key insight_: This is a **cartesian-product** of letter sets. A tree of branching factor ≤4 (digits 7 & 9) and depth = number of digits. Backtracking naturally explores all combinations without extra memory.
+    - _Complexity_:
+        - **Time**: `O(n · 4^n)`: `n` → number of digits. max branching factor (digits 7/9): `4^n`. Each result takes `O(n)` to build (string join).
+        - **Space**: `O(n)` recursion depth + `O(n)` path; output size dominates (`4^n` strings).
 
 
 
