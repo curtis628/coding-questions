@@ -194,6 +194,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       At each step, choose any candidate at index ≥ `start` to keep combinations non-decreasing (prevents duplicates).
       Subtract the chosen number from `remaining`, recurse with the **same index** to allow reuse, and backtrack on return. Stop when `remaining == 0`.
     - _Key insight_: Sorting + restricting DFS to forward indices ensures uniqueness naturally — no sets or post-deduplication required.
+- [Generate Parentheses](https://leetcode.com/problems/generate-parentheses): `#backtracking #dfs`
+    - _Goal_: Generate all well-formed parentheses strings of length `2n`.
+    - _Approach_: Use DFS/backtracking with a `path` plus two counters: `open_used` and `close_used`.
+      Add `'('` when `open_used < n`; add `')'` only when `open_used > close_used` to maintain validity.
+      Record a result when both counters reach `n`.
+    - _Key insight_: Unlike subsets/combinations, recursion must track **state about future validity** (open/close counts).
+      You prune invalid prefixes immediately, so the DFS explores only valid partial strings.
 
 
 
