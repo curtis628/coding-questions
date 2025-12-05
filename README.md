@@ -201,6 +201,18 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       Record a result when both counters reach `n`.
     - _Key insight_: Unlike subsets/combinations, recursion must track **state about future validity** (open/close counts).
       You prune invalid prefixes immediately, so the DFS explores only valid partial strings.
+- [N-Queens](https://leetcode.com/problems/n-queens): `#backtracking #dfs`
+    - _Goal_: Place `n` queens on an `n×n` board so none attack each other; return all valid boards.
+    - _Approach_: Backtracking row-by-row. Instead of marking the whole board, track only the **constraints**:
+        - `col_used` for columns
+        - `diag1_used` for main diagonals (`\`): `row - col`  
+        - `diag2_used` for anti-diagonals (`/`): `row + col`  
+      Maintain a `queen_col_placement` list so each recursive path remembers **which column was chosen for each row**, making board reconstruction easy.
+    - _Key insights_:  
+        - Board marking works (n ≤ 9 on LC) but constraint-tracking is **much faster** and far cleaner.  
+        - Backtracking often needs extra state (like `queen_col_placement`) — avoiding it made reconstruction impossible from constraints alone.  
+        - The diagonals trick (`row±col`) gives **O(1)** safety checks and drastically reduces overhead.
+    - _Complexity_: ~`O(n!)` backtracking search; constraint sets make each step O(1).
 
 
 
