@@ -213,6 +213,14 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
         - Backtracking often needs extra state (like `queen_col_placement`) — avoiding it made reconstruction impossible from constraints alone.  
         - The diagonals trick (`row±col`) gives **O(1)** safety checks and drastically reduces overhead.
     - _Complexity_: ~`O(n!)` backtracking search; constraint sets make each step O(1).
+- [Sort List](https://leetcode.com/problems/sort-list): `#linkedlist #mergesort #divideandconquer`
+    - _Goal_: Sort a singly linked list in `O(n log n)` time using only `O(1)` extra space (not counting recursion).
+    - _Approach_: Use merge sort — the only comparison sort that works efficiently on linked lists.
+      - Find the midpoint with **fast/slow pointers**, split the list by setting `slow.next = None`.
+      - Recursively sort left and right halves.
+      - **Merge** two sorted lists using pointer relinking (dummy head pattern).
+    - _Key insight_: No need for `dummy` nodes when finding mid-point, or need to track a `hi_node` when splitting
+    - _Complexity_: `O(n log n)` time; `O(log n)` space from recursion; `O(1)` auxiliary (merge uses only pointers).
 
 
 
