@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.n_queens import Solution
+from leetcode.backtrack.n_queens import Solution
 
 
 @pytest.mark.parametrize(

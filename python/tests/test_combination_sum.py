@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.combination_sum import Solution
+from leetcode.backtrack.combination_sum import Solution
 
 
 @pytest.mark.parametrize(

@@ -1,7 +1,7 @@
 import pytest
 
 from common.list_node import ListNode
-from leetcode.sort_linked_list import Solution
+from leetcode.linkedlist.sort_linked_list import Solution
 
 
 @pytest.mark.parametrize(

@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode.generate_parenthesis import Solution
+from leetcode.backtrack.generate_parenthesis import Solution
 
 
 @pytest.mark.parametrize(
