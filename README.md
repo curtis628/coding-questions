@@ -221,6 +221,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
       - **Merge** two sorted lists using pointer relinking (dummy head pattern).
     - _Key insight_: No need for `dummy` nodes when finding mid-point, or need to track a `hi_node` when splitting
     - _Complexity_: `O(n log n)` time; `O(log n)` space from recursion; `O(1)` auxiliary (merge uses only pointers).
+- [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists): `#heap #linkedlist`
+    - _Goal_: Merge `k` sorted linked lists into one sorted list.
+    - _Approach_: Use a min-heap and repeatedly extract the smallest node across all lists.
+      Push the head of each non-empty list into the heap, then each time you pop a node, push its successor.
+    - _Key insight_: Python’s heap requires elements to be comparable, but `ListNode` objects are not.
+      Use a tuple `(node.val, tie_breaker, node)` where `tie_breaker = next(count)` ensures stable ordering for equal values.
+    - _Complexity_: `O(n log k)` time (each of `n` nodes pushed + popped from a heap of size `k`), `O(k)` space for the heap.
 
 
 
