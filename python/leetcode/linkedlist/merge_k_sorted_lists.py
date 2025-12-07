@@ -1,10 +1,10 @@
 """23: https://leetcode.com/problems/merge-k-sorted-lists"""
 
+import heapq
+from itertools import count
 from typing import List, Optional
 
 from common.list_node import ListNode
-import heapq
-from itertools import count
 
 
 class Solution:

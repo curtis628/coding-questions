@@ -228,6 +228,14 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Key insight_: Python’s heap requires elements to be comparable, but `ListNode` objects are not.
       Use a tuple `(node.val, tie_breaker, node)` where `tie_breaker = next(count)` ensures stable ordering for equal values.
     - _Complexity_: `O(n log k)` time (each of `n` nodes pushed + popped from a heap of size `k`), `O(k)` space for the heap.
+- [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array):  `#heap`
+    - _Goal_: Return the `k`th largest value in an unsorted array (no sorting!)
+    - _Approach_: Use a heap. Two common patterns:
+        - **Max-heap via negation**: push `-num` to simulate a max-heap since Python’s `heapq` is a min-heap. Pop `k` times and negate again to get the kth largest.
+        - **Optimal approach**: maintain a **min-heap of size `k`**. Push each number; if the heap exceeds size `k`, pop the smallest. After processing all numbers, the root of the heap holds the `k`th largest value.
+    - _Key insight_: You don’t need to keep all `n` elements in the heap.
+      Keeping only the top `k` largest elements reduces complexity to `O(n log k)` and uses only `O(k)` space.
+    - _Complexity_: `O(n log k)` time for the optimal heap approach; `O(k)` space.
 
 
 
