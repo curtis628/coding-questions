@@ -236,6 +236,13 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Key insight_: You don’t need to keep all `n` elements in the heap.
       Keeping only the top `k` largest elements reduces complexity to `O(n log k)` and uses only `O(k)` space.
     - _Complexity_: `O(n log k)` time for the optimal heap approach; `O(k)` space.
+- [Maximum Subarray](https://leetcode.com/problems/maximum-subarray): `#dp #kadane`
+    - _Goal_: Find the maximum sum of any contiguous subarray.
+    - _Approach_: Single pass using Kadane’s algorithm. Track a running sum (`curr_sum`) representing the best subarray ending at the current index.
+      At each step, decide whether to extend the current subarray or start fresh:
+      `curr_sum = max(curr_sum + num, num)`. Track the global maximum alongside.
+    - _Key insight_: This is **not** a sliding window problem — there’s no meaningful left pointer.
+    - _Complexity_: `O(n)` time, `O(1)` space
 
 
 
