@@ -236,12 +236,23 @@ Brief notes to help me remember the important lessons/takeaways from memorable c
     - _Key insight_: You don’t need to keep all `n` elements in the heap.
       Keeping only the top `k` largest elements reduces complexity to `O(n log k)` and uses only `O(k)` space.
     - _Complexity_: `O(n log k)` time for the optimal heap approach; `O(k)` space.
-- [Maximum Subarray](https://leetcode.com/problems/maximum-subarray): `#dp #kadane`
+- [Maximum Subarray](https://leetcode.com/problems/maximum-subarray): `#dp #kadane #array`
     - _Goal_: Find the maximum sum of any contiguous subarray.
     - _Approach_: Single pass using Kadane’s algorithm. Track a running sum (`curr_sum`) representing the best subarray ending at the current index.
       At each step, decide whether to extend the current subarray or start fresh:
       `curr_sum = max(curr_sum + num, num)`. Track the global maximum alongside.
     - _Key insight_: This is **not** a sliding window problem — there’s no meaningful left pointer.
+    - _Complexity_: `O(n)` time, `O(1)` space
+- [Maximum Sum Circular Subarray](https://leetcode.com/problems/maximum-sum-circular-subarray): `#dp #kadane #array`
+    - _Goal_: Find the maximum sum of a contiguous subarray in a **circular** array (wrapping from end → start allowed).
+    - _Approach_: Consider two cases:
+      1) The max subarray does **not** wrap → standard Kadane’s algorithm.
+      2) The max subarray **does** wrap → compute `total_sum - min_subarray_sum`.
+      Track max subarray, min subarray, and total sum in a single pass.
+    - _Key insight_: Circular problems can often be reframed via a **complement**.
+      A wrapped max subarray is equivalent to taking the whole array and *excluding* the minimum subarray.
+      When all values are negative, wrapping is invalid and the normal max subarray must be used.
+      Tracking min _values_ or indices → bad idea! Lots of branches + complexity → going down the wrong road.
     - _Complexity_: `O(n)` time, `O(1)` space
 
 
